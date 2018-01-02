@@ -11,7 +11,7 @@ class App extends React.Component {
 					<div>
 						<NavLink exact to="/">Home</NavLink>
 						{' | '}
-						<NavLink exact to="/test">what</NavLink>
+						<NavLink exact to="/page-does-not-exist">404</NavLink>
 						{' | '}
 					</div>
 					<Switch>

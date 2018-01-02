@@ -25167,8 +25167,8 @@ var App = function (_React$Component) {
 					' | ',
 					_react2.default.createElement(
 						_reactRouterDom.NavLink,
-						{ exact: true, to: '/test' },
-						'what'
+						{ exact: true, to: '/page-does-not-exist' },
+						'404'
 					),
 					' | '
 				),
