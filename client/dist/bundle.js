@@ -4353,7 +4353,7 @@ var _Root = __webpack_require__(70);
 
 var _Root2 = _interopRequireDefault(_Root);
 
-var _configureStore = __webpack_require__(122);
+var _configureStore = __webpack_require__(123);
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
@@ -25128,6 +25128,10 @@ var _Homepage = __webpack_require__(121);
 
 var _Homepage2 = _interopRequireDefault(_Homepage);
 
+var _NotFoundPage = __webpack_require__(122);
+
+var _NotFoundPage2 = _interopRequireDefault(_NotFoundPage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25160,12 +25164,19 @@ var App = function (_React$Component) {
 						{ exact: true, to: '/' },
 						'Home'
 					),
+					' | ',
+					_react2.default.createElement(
+						_reactRouterDom.NavLink,
+						{ exact: true, to: '/test' },
+						'what'
+					),
 					' | '
 				),
 				_react2.default.createElement(
 					_reactRouterDom.Switch,
 					null,
-					_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Homepage2.default })
+					_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Homepage2.default }),
+					_react2.default.createElement(_reactRouterDom.Route, { component: _NotFoundPage2.default })
 				)
 			);
 		}
@@ -25895,13 +25906,44 @@ exports.default = Homepage;
 
 
 Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var NotFoundPage = function NotFoundPage() {
+	return _react2.default.createElement(
+		'div',
+		null,
+		_react2.default.createElement(
+			'h1',
+			null,
+			'Oops, page not found, please try again.'
+		)
+	);
+};
+
+exports.default = NotFoundPage;
+
+/***/ }),
+/* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.history = undefined;
 
 var _redux = __webpack_require__(23);
 
-var _reduxThunk = __webpack_require__(123);
+var _reduxThunk = __webpack_require__(124);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -25911,7 +25953,7 @@ var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
 
 var _reactRouterRedux = __webpack_require__(17);
 
-var _reducers = __webpack_require__(124);
+var _reducers = __webpack_require__(125);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -25929,7 +25971,7 @@ function configureStore(initialState) {
 exports.default = configureStore;
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25958,7 +26000,7 @@ thunk.withExtraArgument = createThunkMiddleware;
 exports['default'] = thunk;
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25970,7 +26012,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(23);
 
-var _exampleReducer = __webpack_require__(125);
+var _exampleReducer = __webpack_require__(126);
 
 var _exampleReducer2 = _interopRequireDefault(_exampleReducer);
 
@@ -25986,7 +26028,7 @@ var rootReducer = (0, _redux.combineReducers)({
 exports.default = rootReducer;
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
