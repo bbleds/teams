@@ -4353,7 +4353,7 @@ var _Root = __webpack_require__(70);
 
 var _Root2 = _interopRequireDefault(_Root);
 
-var _configureStore = __webpack_require__(126);
+var _configureStore = __webpack_require__(127);
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
@@ -25136,6 +25136,10 @@ var _NotFoundPage = __webpack_require__(125);
 
 var _NotFoundPage2 = _interopRequireDefault(_NotFoundPage);
 
+var _GamePage = __webpack_require__(126);
+
+var _GamePage2 = _interopRequireDefault(_GamePage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25177,6 +25181,12 @@ var App = function (_React$Component) {
 					' | ',
 					_react2.default.createElement(
 						_reactRouterDom.NavLink,
+						{ exact: true, to: '/games' },
+						'Games'
+					),
+					' | ',
+					_react2.default.createElement(
+						_reactRouterDom.NavLink,
 						{ to: '/page-does-not-exist' },
 						'404'
 					),
@@ -25187,6 +25197,7 @@ var App = function (_React$Component) {
 					null,
 					_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Homepage2.default }),
 					_react2.default.createElement(_reactRouterDom.Route, { path: '/profile', component: _ProfilePage2.default }),
+					_react2.default.createElement(_reactRouterDom.Route, { path: '/games', component: _GamePage2.default }),
 					_react2.default.createElement(_reactRouterDom.Route, { component: _NotFoundPage2.default })
 				)
 			);
@@ -26072,13 +26083,67 @@ exports.default = NotFoundPage;
 
 
 Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var GamePage = function (_Component) {
+	_inherits(GamePage, _Component);
+
+	function GamePage() {
+		_classCallCheck(this, GamePage);
+
+		return _possibleConstructorReturn(this, (GamePage.__proto__ || Object.getPrototypeOf(GamePage)).apply(this, arguments));
+	}
+
+	_createClass(GamePage, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(
+					'h1',
+					null,
+					'Game page here'
+				)
+			);
+		}
+	}]);
+
+	return GamePage;
+}(_react.Component);
+
+exports.default = GamePage;
+
+/***/ }),
+/* 127 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.history = undefined;
 
 var _redux = __webpack_require__(23);
 
-var _reduxThunk = __webpack_require__(127);
+var _reduxThunk = __webpack_require__(128);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -26088,7 +26153,7 @@ var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
 
 var _reactRouterRedux = __webpack_require__(17);
 
-var _reducers = __webpack_require__(128);
+var _reducers = __webpack_require__(129);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -26106,7 +26171,7 @@ function configureStore(initialState) {
 exports.default = configureStore;
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26135,7 +26200,7 @@ thunk.withExtraArgument = createThunkMiddleware;
 exports['default'] = thunk;
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26147,7 +26212,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(23);
 
-var _exampleReducer = __webpack_require__(129);
+var _exampleReducer = __webpack_require__(130);
 
 var _exampleReducer2 = _interopRequireDefault(_exampleReducer);
 
@@ -26163,7 +26228,7 @@ var rootReducer = (0, _redux.combineReducers)({
 exports.default = rootReducer;
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
