@@ -4353,7 +4353,7 @@ var _Root = __webpack_require__(70);
 
 var _Root2 = _interopRequireDefault(_Root);
 
-var _configureStore = __webpack_require__(123);
+var _configureStore = __webpack_require__(126);
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
@@ -25128,7 +25128,11 @@ var _Homepage = __webpack_require__(121);
 
 var _Homepage2 = _interopRequireDefault(_Homepage);
 
-var _NotFoundPage = __webpack_require__(122);
+var _ProfilePage = __webpack_require__(122);
+
+var _ProfilePage2 = _interopRequireDefault(_ProfilePage);
+
+var _NotFoundPage = __webpack_require__(125);
 
 var _NotFoundPage2 = _interopRequireDefault(_NotFoundPage);
 
@@ -25167,7 +25171,13 @@ var App = function (_React$Component) {
 					' | ',
 					_react2.default.createElement(
 						_reactRouterDom.NavLink,
-						{ exact: true, to: '/page-does-not-exist' },
+						{ exact: true, to: '/profile' },
+						'Profile'
+					),
+					' | ',
+					_react2.default.createElement(
+						_reactRouterDom.NavLink,
+						{ to: '/page-does-not-exist' },
 						'404'
 					),
 					' | '
@@ -25176,6 +25186,7 @@ var App = function (_React$Component) {
 					_reactRouterDom.Switch,
 					null,
 					_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Homepage2.default }),
+					_react2.default.createElement(_reactRouterDom.Route, { path: '/profile', component: _ProfilePage2.default }),
 					_react2.default.createElement(_reactRouterDom.Route, { component: _NotFoundPage2.default })
 				)
 			);
@@ -25909,6 +25920,130 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _ProfilePageForm = __webpack_require__(123);
+
+var _ProfilePageForm2 = _interopRequireDefault(_ProfilePageForm);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProfilePage = function (_Component) {
+	_inherits(ProfilePage, _Component);
+
+	function ProfilePage() {
+		_classCallCheck(this, ProfilePage);
+
+		return _possibleConstructorReturn(this, (ProfilePage.__proto__ || Object.getPrototypeOf(ProfilePage)).apply(this, arguments));
+	}
+
+	_createClass(ProfilePage, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(_ProfilePageForm2.default, null)
+			);
+		}
+	}]);
+
+	return ProfilePage;
+}(_react.Component);
+
+exports.default = ProfilePage;
+
+/***/ }),
+/* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _ProfilePageActions = __webpack_require__(124);
+
+var _ProfilePageActions2 = _interopRequireDefault(_ProfilePageActions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ProfilePageForm = function ProfilePageForm() {
+	return _react2.default.createElement(
+		'form',
+		null,
+		_react2.default.createElement('input', { type: 'text', placeholder: 'First Name...' }),
+		_react2.default.createElement('input', { type: 'text', placeholder: 'Last Name...' }),
+		_react2.default.createElement('textarea', { placeholder: 'bio' }),
+		_react2.default.createElement(_ProfilePageActions2.default, null)
+	);
+};
+
+exports.default = ProfilePageForm;
+
+/***/ }),
+/* 124 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ProfilePageActions = function ProfilePageActions() {
+	return _react2.default.createElement(
+		'div',
+		null,
+		_react2.default.createElement(
+			'button',
+			null,
+			'Edit'
+		),
+		_react2.default.createElement(
+			'button',
+			null,
+			'Save'
+		)
+	);
+};
+
+exports.default = ProfilePageActions;
+
+/***/ }),
+/* 125 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -25930,7 +26065,7 @@ var NotFoundPage = function NotFoundPage() {
 exports.default = NotFoundPage;
 
 /***/ }),
-/* 123 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25943,7 +26078,7 @@ exports.history = undefined;
 
 var _redux = __webpack_require__(23);
 
-var _reduxThunk = __webpack_require__(124);
+var _reduxThunk = __webpack_require__(127);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -25953,7 +26088,7 @@ var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
 
 var _reactRouterRedux = __webpack_require__(17);
 
-var _reducers = __webpack_require__(125);
+var _reducers = __webpack_require__(128);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -25971,7 +26106,7 @@ function configureStore(initialState) {
 exports.default = configureStore;
 
 /***/ }),
-/* 124 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26000,7 +26135,7 @@ thunk.withExtraArgument = createThunkMiddleware;
 exports['default'] = thunk;
 
 /***/ }),
-/* 125 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26012,7 +26147,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(23);
 
-var _exampleReducer = __webpack_require__(126);
+var _exampleReducer = __webpack_require__(129);
 
 var _exampleReducer2 = _interopRequireDefault(_exampleReducer);
 
@@ -26028,7 +26163,7 @@ var rootReducer = (0, _redux.combineReducers)({
 exports.default = rootReducer;
 
 /***/ }),
-/* 126 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
