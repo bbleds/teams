@@ -6,12 +6,17 @@ export function toggleEdit() {
   }
 }
 
-export function saveProfile() {
+export function saveProfile(data) {
 	// save profile info to db
+	console.log('logging from save profile', data);
+
 
   return function (dispatch) {
     return dispatch({
-      type: 'TOGGLE_EDIT'
+      type: 'TOGGLE_EDIT',
+			firstName: data.firstName,
+			lastName: data.lastName,
+			bio: data.bio
     })
   }
 }

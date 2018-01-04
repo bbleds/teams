@@ -26041,26 +26041,42 @@ var ProfilePage = function (_Component) {
 	_createClass(ProfilePage, [{
 		key: 'render',
 		value: function render() {
+			var _this2 = this;
+
 			var _props = this.props,
 			    actions = _props.actions,
 			    state = _props.state;
 			var profile = state.profile;
 
 			var actionButtonsToShow = profile.edit ? ['save'] : ['edit'];
+			var formValues = {};
 
 			var formFields = _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement('input', { type: 'text', placeholder: 'First Name...', defaultValue: profile.firstName, readOnly: !profile.edit }),
-				_react2.default.createElement('input', { type: 'text', placeholder: 'Last Name...', defaultValue: profile.lastName, readOnly: !profile.edit }),
-				_react2.default.createElement('textarea', { placeholder: 'bio', defaultValue: profile.bio, readOnly: !profile.edit }),
+				_react2.default.createElement('input', { type: 'text', placeholder: 'First Name...', defaultValue: profile.firstName, readOnly: !profile.edit, ref: function ref(node) {
+						return _this2.firstName = node;
+					} }),
+				_react2.default.createElement('input', { type: 'text', placeholder: 'Last Name...', defaultValue: profile.lastName, readOnly: !profile.edit, ref: function ref(node) {
+						return _this2.lastName = node;
+					} }),
+				_react2.default.createElement('textarea', { placeholder: 'bio', defaultValue: profile.bio, readOnly: !profile.edit, ref: function ref(node) {
+						return _this2.bio = node;
+					} }),
 				_react2.default.createElement(_ActionList2.default, {
 					buttons: actionButtonsToShow,
 					onEditClick: function onEditClick(e) {
 						e.preventDefault();actions.toggleEdit();
 					},
 					onSaveClick: function onSaveClick(e) {
-						e.preventDefault();actions.saveProfile();
+						e.preventDefault();
+						var data = {
+							firstName: _this2.firstName.value || 'Unknown',
+							lastName: _this2.lastName.value || 'Unknown',
+							bio: _this2.bio.value || 'Unknown'
+						};
+
+						actions.saveProfile(data);
 					}
 				})
 			);
@@ -26110,12 +26126,16 @@ function toggleEdit() {
   };
 }
 
-function saveProfile() {
+function saveProfile(data) {
   // save profile info to db
+  console.log('logging from save profile', data);
 
   return function (dispatch) {
     return dispatch({
-      type: 'TOGGLE_EDIT'
+      type: 'TOGGLE_EDIT',
+      firstName: data.firstName,
+      lastName: data.lastName,
+      bio: data.bio
     });
   };
 }
@@ -26365,8 +26385,12 @@ function profileReducer() {
 
 		switch (action.type) {
 				case 'TOGGLE_EDIT':
+						console.log('toggling the edit');
 						return _extends({}, state, {
-								edit: !state.edit
+								edit: !state.edit,
+								firstName: action.firstName || state.firstName,
+								lastName: action.lastName || state.lastName,
+								bio: action.bio || state.bio
 						});
 				default:
 						return state;

@@ -13,16 +13,26 @@ class ProfilePage extends Component{
 		let {actions, state} = this.props
 		let { profile } = state
 		let actionButtonsToShow = profile.edit ? ['save'] : ['edit']
+		let formValues = {}
 
 		let formFields = (
 			<div>
-				<input type="text" placeholder="First Name..." defaultValue={profile.firstName} readOnly={!profile.edit} />
-				<input type="text" placeholder="Last Name..." defaultValue={profile.lastName} readOnly={!profile.edit} />
-				<textarea placeholder="bio" defaultValue={profile.bio} readOnly={!profile.edit}></textarea>
+				<input type="text" placeholder="First Name..." defaultValue={profile.firstName} readOnly={!profile.edit} ref={(node)=> this.firstName = node }/>
+				<input type="text" placeholder="Last Name..." defaultValue={profile.lastName} readOnly={!profile.edit} ref={(node)=> this.lastName = node } />
+				<textarea placeholder="bio" defaultValue={profile.bio} readOnly={!profile.edit} ref={(node)=> this.bio = node }></textarea>
 				<ActionList
 					buttons={actionButtonsToShow}
 					onEditClick={(e)=>{e.preventDefault(); actions.toggleEdit()}}
-					onSaveClick={(e)=>{e.preventDefault(); actions.saveProfile()}}
+					onSaveClick={(e)=>{
+						e.preventDefault()
+						let data = {
+							firstName : this.firstName.value || 'Unknown',
+							lastName : this.lastName.value || 'Unknown',
+							bio: this.bio.value || 'Unknown'
+						}
+
+						actions.saveProfile(data)
+					}}
 					/>
 			</div>
 		)
